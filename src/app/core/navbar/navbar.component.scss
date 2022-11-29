@@ -3,10 +3,51 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    background-color: #F5F4F1;
+    min-height: 45px;
+    text-transform: uppercase;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+    }
+
+    &__input-wrapper {
+
+        input {
+            padding-left: 25px;
+            position: relative;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            border: none;
+            color: #71797d;
+            width: 350px;
+            height: 30px;
+            padding-left: 10px;
+
+            &:focus {
+                outline: none;
+                border: 1px solid #bfcbd3;
+                color: #041821;
+            }
+
+
+        }
+
+    }
+
+
 
     &__logo {
         img {
-            width: 100px;
+            width: 110px;
+            cursor: pointer;
         }
     }
 }

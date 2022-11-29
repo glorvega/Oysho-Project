@@ -1,7 +1,9 @@
 <div class="navbar-container">
-    <div routerLink="home" routerLinkActive="active" class="navbar-container__logo">
+    <div class="navbar-container__logo" routerLink="home" routerLinkActive="active">
         <img src="../../assets/images/logo.png" alt="Logo de Oysho" />
     </div>
-    <input type="text">
-    <p routerLink="list" routerLinkActive="active">Products</p>
+    <div class="navbar-container__input-wrapper">
+        <input type="text" class="icon" placeholder="Buscar productos...">
+    </div>
+    <a routerLink="list" routerLinkActive="active">Products</a>
 </div>

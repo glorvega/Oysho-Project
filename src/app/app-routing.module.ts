@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { HomeModule } from './pages/home/home.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     loadChildren: () =>
@@ -13,6 +14,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/product/product.module').then((m) => m.ProductModule),
   },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

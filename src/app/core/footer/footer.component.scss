@@ -7,37 +7,11 @@
     font-size: 15px;
     line-height: 24px;
     color: #737373;
-    position: fixed;
-    width: 100%;
 
     &--row {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-
-        &__ayuda {
-
-            li {
-
-                padding: 0;
-            }
-        }
-
-        &__empresa {
-
-            li {
-
-                padding: 0;
-            }
-        }
-
-        &__links {
-
-            li {
-
-                padding: 0;
-            }
-        }
 
         &__qr {
 
@@ -69,41 +43,19 @@
                 text-decoration: underline;
             }
         }
-
-        .footer-links {
-
-            li {
-                display: block
-            }
-
-            a {
-                color: #737373;
-
-                &:hover {
-                    color: #3366cc;
-                    text-decoration: none;
-                }
-            }
-
-            .inline {
-                li {
-                    display: inline-block
-                }
-            }
-        }
-
     }
 
-    hr {
-        border-top-color: #bbb;
-        opacity: 0.5;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border: 0;
-        border-top: 1px solid #eee;
+    &__social {
+        &--copyright {
+            a {
+                color: #737373;
+                text-decoration: none;
 
-        .small {
-            margin: 20px 0
+                &:hover {
+                    color: #000;
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

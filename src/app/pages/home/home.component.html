@@ -1,6 +1,35 @@
 <div class="home-container">
-    <div class="home-container__collection-name">
+    <ngb-carousel>
+        <ng-template ngbSlide>
+            <div class="home-container__collection">
+                <img src="../../assets/images/collections/ski-collection.jpg" alt="Random first slide" />
+            </div>
+            <div class="home-container__collection--name">
+                <h3>Ski Collection</h3>
+                <p>Descubrir la colección</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="home-container__collection">
+                <img src="../../assets/images/collections/warm-collection.jpg" alt="Random second slide" />
+            </div>
+            <div class="home-container__collection--name">
+                <h3>New Arrivals</h3>
+                <p>Encuentra nuevos productos</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="home-container__collection">
+                <img src="../../assets/images/collections/gift-collection.jpg" alt="Random third slide" />
+            </div>
+            <div class="home-container__collection--name">
+                <h3>Ideas para Regalar</h3>
+                <p></p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    <!--     <div class="home-container__collection-name">
         <h5>Ski Collection</h5>
         <h3><a>Descubrir la colección</a></h3>
-    </div>
+    </div> -->
 </div>

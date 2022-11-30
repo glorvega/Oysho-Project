@@ -1,4 +1,14 @@
 <div class="navbar-container">
+    <div class="navbar-container__sidebar">
+        <ng-template #content>
+            <ul class="navbar-container__sidebar--categories" *ngFor="let cat of allCategories">
+                <li>{{cat.name}}</li>
+            </ul>
+        </ng-template>
+    </div>
+    <button class="btn btn-lg" (click)="open(content)"><img src="../../assets/images/icons/hamburger-icon.png"
+            alt="menu icono" /></button>
+
     <div class="navbar-container__logo" routerLink="home" routerLinkActive="active">
         <img src="../../assets/images/logo.png" alt="Logo de Oysho" />
     </div>

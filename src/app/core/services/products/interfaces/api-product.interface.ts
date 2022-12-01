@@ -21,7 +21,7 @@ export interface ApiCategoryElement {
 
 export interface ProductList {
   gridElements: GridElement[];
-  products: Product[];
+  products: ApiProduct[];
   rueiData: RueiData;
 }
 
@@ -44,7 +44,7 @@ export enum GridElementType {
   Cc = 'CC',
 }
 
-export interface Product {
+export interface ApiProduct {
   id: number;
   type: RelatedProductType;
   name: string;

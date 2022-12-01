@@ -3,75 +3,90 @@
 .navbar-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
     background-color: #F5F4F1;
     min-height: 45px;
     text-transform: uppercase;
     top: 0;
     position: sticky;
+    z-index: 999999;
+    box-shadow: rgba(33, 35, 38, 0.2) 0px 10px 10px -10px;
 
-    &__sidebar {
-        &--categories {
+    &__left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+
+        &--sidebar-categories {
             font-family: 'Roboto Condensed', sans-serif;
             display: flex;
             flex-direction: column;
             margin: 30px 0px 0px 10px;
-            line-height: 15px;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 10px;
+            letter-spacing: -.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+
+        }
+
+        &--logo {
+            img {
+                width: 110px;
+                cursor: pointer;
+            }
         }
     }
 
-    img {
-        width: 30px;
+    &__middle {
+
+        &--input-wrapper {
+            margin-top: 10px;
+
+            input {
+                padding-left: 25px;
+                position: relative;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                border-radius: 20px;
+                border: none;
+                color: #71797d;
+                width: 400px;
+                height: 30px;
+                padding-left: 10px;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid #bfcbd3;
+                    color: #041821;
+                }
+
+
+            }
+        }
     }
 
-    a {
-        color: #737373;
-        text-decoration: none;
-        cursor: pointer;
+    &__right {
+        padding-right: 100px;
 
-        &:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        &:visited {
+        a {
             color: #737373;
             text-decoration: none;
-        }
-    }
+            cursor: pointer;
 
-    &__input-wrapper {
-
-        input {
-            padding-left: 25px;
-            position: relative;
-            -webkit-border-radius: 20px;
-            -moz-border-radius: 20px;
-            border-radius: 20px;
-            border: none;
-            color: #71797d;
-            width: 400px;
-            height: 30px;
-            padding-left: 10px;
-
-            &:focus {
-                outline: none;
-                border: 1px solid #bfcbd3;
-                color: #041821;
+            &:hover {
+                color: #000;
+                text-decoration: underline;
             }
 
+            &:visited {
+                color: #737373;
+                text-decoration: none;
+            }
 
-        }
-
-    }
-
-
-
-    &__logo {
-        img {
-            width: 110px;
-            cursor: pointer;
         }
     }
 }

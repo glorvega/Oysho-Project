@@ -5,20 +5,24 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
 import { HomeModule } from './pages/home/home.module';
-import { ProductModule } from './pages/product/product.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { ListModule } from './pages/list/list.module';
+import { DetailModule } from './pages/detail/detail.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    HomeModule,
-    ProductModule,
-    CoreModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    SharedModule,
+    CoreModule,
+    HomeModule,
+    ListModule,
+    DetailModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

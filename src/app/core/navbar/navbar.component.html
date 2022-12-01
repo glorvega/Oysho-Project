@@ -1,19 +1,32 @@
 <div class="navbar-container">
-    <div class="navbar-container__sidebar">
-        <ng-template #content>
-            <ul class="navbar-container__sidebar--categories" *ngFor="let cat of allCategories">
-                <li>{{cat.name}}</li>
-            </ul>
-        </ng-template>
-    </div>
-    <button class="btn btn-lg" (click)="open(content)"><img src="../../assets/images/icons/hamburger-icon.png"
-            alt="menu icono" /></button>
+    <div class="navbar-container__left">
+        <div class="navbar-container__left--sidebar">
+            <ng-template #content>
+                <ul class="navbar-container__left--sidebar-categories" *ngFor="let cat of allCategories">
+                    <li>{{cat.name}}</li>
+                </ul>
+            </ng-template>
+        </div>
+        <button class="btn btn-lg" (click)="open(content)"><img src="../../assets/images/icons/hamburger-icon.png"
+                alt="menu icono" width="30px" height="30px" /></button>
 
-    <div class="navbar-container__logo" routerLink="home" routerLinkActive="active">
-        <img src="../../assets/images/logo.png" alt="Logo de Oysho" />
+        <div class="navbar-container__left--logo" (click)="gotoHomepage()">
+            <img src="../../assets/images/logo.png" alt="Logo de Oysho" />
+        </div>
     </div>
-    <div class="navbar-container__input-wrapper">
-        <input type="text" class="icon" placeholder="Buscar productos...">
+    <div class="navbar-container__middle">
+        <div class="navbar-container__middle--input-wrapper">
+            <!-- <input type="text" class="icon" placeholder="Buscar productos..."> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                    <img src="../../../assets/images/icons/search.svg" alt="search icon" width="15px" height="15px" />
+                </span>
+                <input type="text" class="icon" placeholder="Buscar productos...">
+            </div>
+        </div>
     </div>
-    <a routerLink="list" routerLinkActive="active">Products</a>
+    <div class="navbar-container__right">
+        <a (click)="gotoList()">Products</a>
+    </div>
+
 </div>

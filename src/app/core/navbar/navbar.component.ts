@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
-import { Category } from 'src/app/pages/product/interface/product.interface';
-import { ApiProductService } from '../services/products/services/api-product.service';
+import { Category } from 'src/app/core/services/products/interfaces/product.interface';
+import { ApiProductService } from '../services/products/services/api/api-product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -25,6 +25,14 @@ export class NavbarComponent implements OnInit {
 
   open(content: unknown) {
     this.offcanvasService.open(content).result;
+  }
+
+  gotoHomepage() {
+    this.router.navigate(['home']);
+  }
+
+  gotoList() {
+    this.router.navigate(['list']);
   }
 
   getCategories() {

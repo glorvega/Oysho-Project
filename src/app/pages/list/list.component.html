@@ -1,0 +1,15 @@
+<p>list works!</p>
+<div class="list-container">
+    <h2 class="list-container__title">Estos son todos los productos de la colección</h2>
+    <input type="text" placeholder="Busca un producto" class="list-container__input">
+    <!-- [(ngModel)]="inputSearch"
+        (keydown.enter)="filterProducts(inputSearch)" -->
+    <div class="list-container__products">
+        <app-card [callbackFunction]="gotoDetail">
+        </app-card>
+        <!--  <app-card *ngFor="let videogame of videogames" [videogame]="videogame" [steamGame]="true"
+            [callbackFunctionFirst]="addToCollection" [callbackFunctionSecond]="goToDetails" labelFirst="Añadir"
+            labelSecond="Detalles">
+        </app-card> -->
+    </div>
+</div>

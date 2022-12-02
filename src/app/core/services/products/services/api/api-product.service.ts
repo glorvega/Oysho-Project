@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import {
   ApiCategory,
   ApiProduct,
-  ProductList,
+  ApiProductList,
 } from '../../interfaces/api-product.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -23,8 +23,8 @@ export class ApiProductService {
     return this.http.get<ApiCategory>(`${this.base}/category`);
   }
 
-  getProductsByCategory(id: string): Observable<ProductList> {
-    return this.http.get<ProductList>(`${this.base}/category/${id}/product`);
+  getProductList(id: string): Observable<ApiProductList> {
+    return this.http.get<ApiProductList>(`${this.base}/category/${id}/product`);
   } //en array
 
   getProductsDetails(catId: string, prodId: string): Observable<ApiProduct> {

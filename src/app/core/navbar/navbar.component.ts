@@ -39,12 +39,12 @@ export class NavbarComponent implements OnInit {
     this.categoryService.getCategory().subscribe({
       next: (result) => {
         const categoriesArray: Category[] = [];
-        result.categories.forEach((videogame) => {
+        result.categories.forEach((cat) => {
           categoriesArray.push({
-            id: videogame.id,
-            name: videogame.name,
-            nameEn: videogame.nameEn,
-            description: videogame.description,
+            id: cat.id,
+            name: cat.name,
+            nameEn: cat.nameEn,
+            description: cat.description,
           });
         });
         this.allCategories = categoriesArray;

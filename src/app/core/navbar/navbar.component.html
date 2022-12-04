@@ -3,7 +3,7 @@
         <div class="navbar-container__left--sidebar">
             <ng-template #content>
                 <ul class="navbar-container__left--sidebar-categories" *ngFor="let cat of allCategories">
-                    <li>{{cat.name}}</li>
+                    <li (click)="gotoList(cat.id)">{{cat.name}}</li>
                     <!-- ngIf="cat.name === 'ski collection' gotoList()" -->
                 </ul>
             </ng-template>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="navbar-container__right">
-        <a (click)="gotoList()">Products</a>
+        <a>Products</a>
     </div>
 
 </div>

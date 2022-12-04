@@ -9,7 +9,9 @@ export interface Product {
   //type: string;
   name: string;
   nameEn: string;
-  image: null;
+  image: string[];
+  longDescription: string;
+  prices: string[];
   /* attributes: ProductAttribute[];
   detail: Detail; */
 }

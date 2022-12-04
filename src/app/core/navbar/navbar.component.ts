@@ -31,8 +31,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  gotoList() {
-    this.router.navigate(['list']);
+  gotoList(id: number) {
+    this.router.navigate(['list', id.toString()]);
   }
 
   getCategories() {
@@ -40,12 +40,14 @@ export class NavbarComponent implements OnInit {
       next: (result) => {
         const categoriesArray: Category[] = [];
         result.categories.forEach((cat) => {
+          /*  if (cat.type === '14') { */
           categoriesArray.push({
             id: cat.id,
             name: cat.name,
             nameEn: cat.nameEn,
             description: cat.description,
           });
+          //}
         });
         this.allCategories = categoriesArray;
       },

@@ -8,7 +8,6 @@ import { HomeModule } from './pages/home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ListModule } from './pages/list/list.module';
-import { DetailModule } from './pages/detail/detail.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     HomeModule,
     ListModule,
-    DetailModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

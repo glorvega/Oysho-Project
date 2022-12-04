@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   gotoList() {
-    this.router.navigate(['list']);
+    this.router.navigate(['list/1010601166']);
+  }
+
+  gotoShop() {
+    this.router.navigate(['list/1010259541']);
   }
 }

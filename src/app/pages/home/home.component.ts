@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
   gotoShop() {
     this.router.navigate(['list/1010259541']);
   }
+
+  gotoNewArrivals() {
+    this.router.navigate(['list/1469017']);
+  }
 }

@@ -10,10 +10,11 @@ import { ProductService } from 'src/app/core/services/products/services/product.
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  //Importar el input filter de pipes y la interface de details
   public productList: Product[] = [];
   public inputSearch: string = '';
   id: string | null = '';
+  public page = 1;
+  public pageSize = 10;
 
   constructor(
     private router: Router,

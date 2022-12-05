@@ -6,9 +6,12 @@ import { CoreModule } from './core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeModule } from './pages/home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListModule } from './pages/list/list.module';
 import { SharedModule } from './shared/shared.module';
+import { SpinnerModule } from './shared/spinner/spinner.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +26,15 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     HomeModule,
     ListModule,
+    SpinnerModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

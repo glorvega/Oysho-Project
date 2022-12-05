@@ -5,9 +5,5 @@
         <app-card *ngFor="let product of productList | productFilter:inputSearch" [product]="product"
             [callbackFunction]="gotoDetails">
         </app-card>
-        <!--  <app-card  [steamGame]="true"
-            [callbackFunctionFirst]="addToCollection" [callbackFunctionSecond]="goToDetails" labelFirst="Añadir"
-            labelSecond="Detalles">
-        </app-card> -->
     </div>
 </div>

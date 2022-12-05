@@ -46,7 +46,7 @@ export class ApiProductService {
     return this.http.get<ApiCategory>(`${this.base}/category`);
   }
 
-  getProductList(id: string): Observable<ApiProductList> {
+  getApiProductList(id: string): Observable<ApiProductList> {
     return this.http.get<ApiProductList>(`${this.base}/category/${id}/product`);
   } //en array
 

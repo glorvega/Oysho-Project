@@ -16,6 +16,27 @@ export interface Product {
   detail: Detail; */
 }
 
+export const enum ImageSize {
+  fullSize = 1,
+  extraLarge = 2,
+  large = 3,
+  medium = 4,
+  small = 5,
+}
+
+export const enum ImageKind {
+  modelZoom = 1,
+  modelFront = 2,
+  color = 3,
+  productFront = 4,
+  productBack = 5,
+  modelBack = 6,
+}
+
+export interface ImageUrlOptions {
+  kind?: ImageKind;
+  size?: ImageSize;
+}
 /* export interface ApiProduct {
   id: number;
   type: RelatedProductType;

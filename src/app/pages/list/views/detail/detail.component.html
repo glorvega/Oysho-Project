@@ -1,1 +1,18 @@
-<p>detail works!</p>
+<div class="detail-container">
+    <div class="detail-container__card">
+        <button (click)="goBack()">Volver a la colección</button>
+        <div class="detail-container__card--title">
+            <h5>{{productDetails.name}}</h5>
+        </div>
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let image of productDetails.image">
+                <div class="detail-container__card--image">
+                    <img src="{{image}}" />
+                </div>
+            </ng-template>
+        </ngb-carousel>
+        <div class="detail-container__card--description">
+            <p>{{productDetails.longDescription}}</p>
+        </div>
+    </div>
+</div>

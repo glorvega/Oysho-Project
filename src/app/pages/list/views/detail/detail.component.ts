@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import { ApiProductService } from 'src/app/core/services/products/services/api/api-product.service';
 
@@ -14,6 +14,7 @@ export class DetailComponent implements OnInit {
   productDetails!: Product;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private service: ApiProductService
   ) {
@@ -42,5 +43,9 @@ export class DetailComponent implements OnInit {
         console.log(this.productDetails);
       },
     });
+  }
+
+  goBack() {
+    this.router.navigate(['list', this.catdId]);
   }
 }

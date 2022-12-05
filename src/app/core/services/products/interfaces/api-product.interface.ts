@@ -3,7 +3,6 @@ export interface ApiCategory {
 }
 
 export interface ApiCategoryElement {
-  //pasa a ser Category en el product interface
   id: number;
   name: string;
   nameEn: string;
@@ -21,48 +20,47 @@ export interface ApiCategoryElement {
 }
 
 export interface ApiProductList {
-  //gridElements: GridElement[];
+  gridElements: GridElement[];
   products: ApiProduct[];
-  //rueiData: RueiData;
+  rueiData: RueiData;
 }
 
-/* export interface GridElement {
+export interface GridElement {
   ccIds: number[];
   type: GridElementType;
   id?: string;
   template?: Template;
   hiddenFields?: any[];
-} */
+}
 
-/* export enum Template {
+export enum Template {
   Bloque2Imagenes = 'bloque2imagenes',
   Bloque3Imagenes = 'bloque3imagenes',
   The1G = '1G',
-} */
+}
 
-/* export enum GridElementType {
+export enum GridElementType {
   Block = 'block',
   Cc = 'CC',
-} */
+}
 
 export interface ApiProduct {
-  //pasa a ser product en el product interface
   id: number;
-  //type: RelatedProductType;
+  type: RelatedProductType;
   name: string;
   nameEn: string;
   image: null;
-  /* isBuyable: boolean;
+  isBuyable: boolean;
   onSpecial: boolean;
   backSoon: null;
   unitsLot: number;
   isTop: number | null;
   sizeSystem?: string;
-  subFamily: null | string; */
-  //productType: ProductType;
+  subFamily: null | string;
+  productType: ProductType;
   bundleColors: BundleColor[];
   tags: Tag[];
-  /*  attributes: Attribute[]; */
+  attributes: Attribute[];
   relatedCategories: Category[];
   attachments: any[];
   bundleProductSummaries: BundleProductSummary[];
@@ -81,21 +79,21 @@ export interface ApiProduct {
   subFamilyCode: null;
   productUrl?: string;
   productUrlParam: string;
-  /*   gridElemType: ProductGridElemType;
+  gridElemType: ProductGridElemType;
   availabilityDate: Date;
-  visibilityValue: VisibilityValue; */
+  visibilityValue: VisibilityValue;
 }
 
-/* export interface Attribute {
+export interface Attribute {
   id: string;
   name: string;
   value: string;
   type: AttributeType;
   shortDescription?: string;
   longDescription?: string;
-} */
+}
 
-/* export enum AttributeType {
+export enum AttributeType {
   Catfilter = 'CATFILTER',
   Xactfilter = 'XACTFILTER',
   XbrandMastersID = 'XBRAND_MASTERS_ID',
@@ -109,15 +107,15 @@ export interface ApiProduct {
   XmanDate = 'XMAN_DATE',
   Xmanufacturer = 'XMANUFACTURER',
   Xtypfilter = 'XTYPFILTER',
-} */
+}
 
 export interface BundleColor {
   id: number;
   name: string;
   image: null;
   colorName: null;
-  /*   relatedCategories: any[];
-  modelName: null; */
+  relatedCategories: any[];
+  modelName: null;
 }
 
 export interface BundleProductSummary {
@@ -133,10 +131,10 @@ export interface BundleProductSummary {
   isTop: number;
   sizeSystem: string;
   subFamily: string;
-  /* productType: ProductType; */
+  productType: ProductType;
   bundleColors: any[];
   tags: any[];
-  /* attributes: Attribute[]; */
+  attributes: Attribute[];
   relatedCategories: any[];
   attachments: any[];
   bundleProductSummaries: any[];
@@ -149,7 +147,7 @@ export interface BundleProductSummary {
   sectionNameEN: SectionName;
   startDate: string;
   productUrl: string;
-  /*  gridElemType: BundleProductSummaryGridElemType; */
+  gridElemType: BundleProductSummaryGridElemType;
   availabilityDate: Date;
   productUrlTranslations: any[];
 }
@@ -168,11 +166,11 @@ export interface BundleProductSummaryDetail {
   colors: Color[];
   relatedProducts: any[];
   xmediaDefaultSet: null;
-  /*  xmedia: PurpleXmedia[];
+  xmedia: PurpleXmedia[];
   skuDimensions: Dimensions;
   dimensions: Dimensions;
   familyInfo: FamilyInfo;
-  subfamilyInfo: SubfamilyInfo; */
+  subfamilyInfo: SubfamilyInfo;
   isJoinLife: boolean;
   compositionDetail: null;
   joinLife?: string;
@@ -193,7 +191,7 @@ export interface Color {
   image: Image;
   sizes: Size[];
   isContinuity: boolean;
-  /* joinLifeInfo: JoinLifeInfo; */
+  joinLifeInfo: JoinLifeInfo;
   compositionDetail: null;
   colFilter: any[];
 }
@@ -207,7 +205,7 @@ export interface Image {
   availableEstilismo: boolean;
 }
 
-/* export interface JoinLifeInfo {
+export interface JoinLifeInfo {
   descJoinLife: string;
   isJoinLife: boolean;
   joinLifeId?: JoinLifeID;
@@ -220,24 +218,24 @@ export enum JoinLifeID {
   Jl68 = 'JL 68',
   Jl76 = 'JL 76',
   Jl98 = 'JL 98',
-} */
+}
 
 export interface Size {
   sku: number;
   name: string;
   description: null;
-  /*   partnumber: string;
+  partnumber: string;
   isBuyable: boolean;
   backSoon: null | string;
   mastersSizeId: string;
-  position: number; */
+  position: number;
   price: string;
-  /*   oldPrice: null;
+  oldPrice: null;
   sizeType: string;
-  visibilityValue?: VisibilityValue; */
+  visibilityValue?: VisibilityValue;
 }
 
-/* export enum VisibilityValue {
+export enum VisibilityValue {
   BackSoon = 'BACK_SOON',
   Hidden = 'HIDDEN',
   Show = 'SHOW',
@@ -299,12 +297,12 @@ export interface Location {
 
 export enum BundleProductSummaryGridElemType {
   Product = 'PRODUCT',
-} */
+}
 
-/* export enum ProductType {
+export enum ProductType {
   Clothing = 'Clothing',
   Footwear = 'Footwear',
-} */
+}
 
 export enum SectionName {
   Women = 'WOMEN',
@@ -326,18 +324,18 @@ export interface ProductDetail {
   compositionByZone: any[];
   care: any[];
   colors: any[];
-  /* relatedProducts: RelatedProduct[];
+  relatedProducts: RelatedProduct[];
   xmediaDefaultSet: number | null;
   xmedia: FluffyXmedia[] | null;
   skuDimensions: Dimensions;
   dimensions: Dimensions;
   familyInfo: FamilyInfo;
   subfamilyInfo: SubfamilyInfo;
-  isJoinLife: boolean; */
+  isJoinLife: boolean;
   compositionDetail: null;
 }
 
-/* export interface RelatedProduct {
+export interface RelatedProduct {
   id: number;
   image: null;
   name: string;
@@ -354,22 +352,22 @@ export interface ProductDetail {
   family: string;
   subFamily: string;
   productUrl: string;
-} */
+}
 
-/* export interface RelatedProductDetail {
+export interface RelatedProductDetail {
   reference: string;
   colors: any[];
   isJoinLife: boolean;
-} */
+}
 
 export interface Category {
   id: number;
-  //identifier: Identifier;
+  identifier: Identifier;
   name: Name | null;
   urlCategory: boolean;
 }
 
-/* export enum Identifier {
+export enum Identifier {
   AApVertodo = 'A_AP_VERTODO#',
   ABBolsos = 'A_B_BOLSOS#',
   ABVertodo = 'A_B_VERTODO#',
@@ -408,7 +406,7 @@ export interface Category {
   Ultimasemana = 'ULTIMASEMANA#',
   ZBotas = 'Z_BOTAS#',
   ZDestacados = 'Z_DESTACADOS#',
-} */
+}
 
 export enum Name {
   Accesorios = 'ACCESORIOS',
@@ -436,7 +434,7 @@ export enum Name {
   ÚltimaSemana = 'ÚLTIMA SEMANA',
 }
 
-/* export enum RelationType {
+export enum RelationType {
   Accessory = 'ACCESSORY',
   XAlsolike = 'X-ALSOLIKE',
   XSell = 'X-SELL',
@@ -492,7 +490,7 @@ export enum ProductGridElemType {
   Bundle = 'BUNDLE',
   Estilismo = 'ESTILISMO',
   Mocaco = 'MOCACO',
-} */
+}
 
 export interface Tag {
   category: Category;
@@ -506,10 +504,10 @@ export interface Attachment {
   type: string;
 }
 
-/* export interface RueiData {
+export interface RueiData {
   StoreLangRUEI: string;
   StoreTypeRUEI: string;
   OperationTypeRUEI: string;
   OperationRUEI: string;
   StoreIdRUEI: string;
-} */
+}

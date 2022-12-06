@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: ':catId/detail',
     loadChildren: () =>
-      import('./views/detail/detail.module').then((m) => m.DetailModule),
+      import('../detail/detail.module').then((m) => m.DetailModule),
   },
 ];
 @NgModule({

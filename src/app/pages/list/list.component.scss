@@ -33,15 +33,31 @@
         }
     }
 
+    &__select {
+        background: #7c77c3;
+        padding: 5px 10px 5px 20px;
+        border: none;
+        border-radius: 20px;
+        color: black;
+        outline: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: rgba(33, 35, 38, 0.5) 0px 20px 20px -10px;
+        font-family: 'Roboto Condensed', sans-serif;
+        cursor: pointer;
+
+        option {
+            position: relative;
+        }
+
+    }
 
     &__products {
         display: flex;
         flex-direction: row;
         gap: 20px;
         flex-wrap: wrap;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 40px;
+        margin: 20px 0px 40px 0px;
         justify-content: center;
     }
 }

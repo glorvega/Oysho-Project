@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
-import { ApiProductService } from 'src/app/core/services/products/services/api/api-product.service';
 import { ProductService } from 'src/app/core/services/products/services/product.service';
 
 @Component({
@@ -12,9 +11,9 @@ import { ProductService } from 'src/app/core/services/products/services/product.
 export class ListComponent implements OnInit {
   public productList: Product[] = [];
   public inputSearch: string = '';
+  public highToLow: any = [];
+  public lowToHigh: any = [];
   id: string | null = '';
-  public page = 1;
-  public pageSize = 10;
 
   constructor(
     private router: Router,
@@ -29,6 +28,36 @@ export class ListComponent implements OnInit {
         this.getProductList(this.id);
       }
     });
+  }
+
+  sort(event: any) {
+    switch (event.target.value) {
+      case 'High': {
+        this.productList = this.productList.sort(function (a: any, b: any) {
+          return b.prices[0] - a.prices[0];
+        });
+        break;
+      }
+      case 'Low': {
+        this.productList = this.productList.sort(function (a: any, b: any) {
+          return a.prices[0] - b.prices[0];
+        });
+        break;
+      }
+      case 'Name': {
+        this.productList = this.productList.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          } else if (a.name > b.name) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        break;
+      }
+    }
+    return this.productList;
   }
 
   public gotoDetails = (product: Product) => {

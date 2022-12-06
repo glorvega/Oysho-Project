@@ -38,11 +38,19 @@ export class ProductService {
     );
   }
 
-  /*  getProductsDetails(catId: string, prodId: string): Observable<ApiProduct> {
-    return this.http.get<ApiProduct>(
-      `${this.base}/category/${catId}/product/${prodId}/detail`
+  getDetails(catId: string, prodId: string): Observable<Product> {
+    return this.apiProductService.getProductsDetails(catId, prodId).pipe(
+      map((apiProduct) => ({
+        id: apiProduct.id,
+        name: apiProduct.name,
+        nameEn: apiProduct.nameEn,
+        image: this.getImagesPerProduct(apiProduct),
+        longDescription:
+          apiProduct.bundleProductSummaries[0]?.detail?.longDescription,
+        prices: this.getPrices(apiProduct),
+      }))
     );
-  }  */
+  }
 
   getImagesPerProduct(product: ApiProduct) {
     console.log(product);

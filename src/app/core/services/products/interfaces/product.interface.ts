@@ -41,8 +41,8 @@ export interface BundleProductSummary {
   nameEn: string;
   image: null;
   isBuyable: boolean;
-  bundleColors: any[];
-  tags: any[];
+  bundleColors: string[];
+  tags: string[];
   detail: BundleProductSummaryDetail;
 }
 

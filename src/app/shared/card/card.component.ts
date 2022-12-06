@@ -8,7 +8,6 @@ import { Product } from 'src/app/core/services/products/interfaces/product.inter
 })
 export class CardComponent implements OnInit {
   @Input() product!: Product;
-  /* crear la variable product que luego se le pasará por parámetro al callback en la card */
   @Input() callbackFunction!: (args: any) => void;
 
   constructor() {}

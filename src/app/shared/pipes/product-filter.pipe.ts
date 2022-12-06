@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'productFilter',
+  name: 'filter',
 })
 export class ProductFilterPipe implements PipeTransform {
   transform(value: any[], filter: string): any {

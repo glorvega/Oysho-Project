@@ -4,7 +4,10 @@ import { ListComponent } from './list.component';
 import { ListRoutingModule } from './list-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDropdownModule,
+  NgbPaginationModule,
+} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [ListComponent],
@@ -16,6 +19,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     FormsModule,
     NgbPaginationModule,
+    NgbDropdownModule,
   ],
 })
 export class ListModule {}

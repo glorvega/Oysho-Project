@@ -53,7 +53,6 @@ export class ProductService {
   }
 
   getImagesPerProduct(product: ApiProduct) {
-    console.log(product);
     const imagesArray: string[] = [];
     product?.bundleProductSummaries[0]?.detail?.colors?.forEach((color) => {
       imagesArray.push(this.getImageUrl(color.image, { kind: 2, size: 1 }));

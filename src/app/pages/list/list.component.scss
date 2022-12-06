@@ -14,43 +14,51 @@
         font-family: 'Roboto Condensed', sans-serif;
     }
 
-    &__input {
-        padding-left: 25px;
-        position: relative;
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        border-radius: 20px;
-        border: 0.5px solid #71797d;
-        color: #71797d;
-        width: 300px;
-        height: 30px;
-        padding-left: 10px;
+    &__row {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
 
-        &:focus {
-            outline: none;
-            border: 1px solid #bfcbd3;
-            color: #041821;
-        }
-    }
-
-    &__select {
-        background: #7c77c3;
-        padding: 5px 10px 5px 20px;
-        border: none;
-        border-radius: 20px;
-        color: black;
-        outline: none;
-        font-weight: bold;
-        font-size: 1.2rem;
-        box-shadow: rgba(33, 35, 38, 0.5) 0px 20px 20px -10px;
-        font-family: 'Roboto Condensed', sans-serif;
-        cursor: pointer;
-
-        option {
+        &--input {
+            padding-left: 25px;
             position: relative;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            border: 0.5px solid #71797d;
+            color: #71797d;
+            width: 300px;
+            height: 30px;
+            padding-left: 10px;
+
+            &:focus {
+                outline: none;
+                border: 1px solid #bfcbd3;
+                color: #041821;
+            }
         }
 
+        &--select {
+            background: #7c77c3;
+            padding: 5px 10px 5px 20px;
+            border: none;
+            border-radius: 20px;
+            color: black;
+            outline: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: rgba(33, 35, 38, 0.5) 0px 20px 20px -10px;
+            font-family: 'Roboto Condensed', sans-serif;
+            cursor: pointer;
+
+            option {
+                position: relative;
+            }
+
+        }
     }
+
 
     &__products {
         display: flex;

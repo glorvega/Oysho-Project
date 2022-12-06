@@ -1,13 +1,16 @@
 <div class="list-container">
     <h2 class="list-container__title">Estos son todos los productos de la colección</h2>
-    <input type="text" placeholder="Busca un producto" class="list-container__input" [(ngModel)]="inputSearch">
+    <div class="list-container__row">
+        <input type="text" placeholder="Busca un producto" class="list-container__row--input" [(ngModel)]="inputSearch">
 
-    <select class="list-container__select" id="sort-by" (change)="sort($event)">
-        <option value="" selected disabled hidden>Ordenar por...</option>
-        <option value="Name">Nombre A-Z</option>
-        <option value="Low">Precio de menor a mayor</option>
-        <option value="High">Precio de mayor a menor</option>
-    </select>
+        <select class="list-container__row--select" id="sort-by" (change)="sort($event)">
+            <option value="" selected disabled hidden>Ordenar por...</option>
+            <option value="Name">Nombre A-Z</option>
+            <option value="Low">Precio de menor a mayor</option>
+            <option value="High">Precio de mayor a menor</option>
+        </select>
+    </div>
+
 
     <div class="list-container__products">
         <app-card *ngFor="let product of productList | filter:inputSearch" [product]="product"

@@ -13,10 +13,10 @@ export interface ApiCategoryElement {
   numberOfProducts: number;
   type: string;
   viewCategoryId: number;
-  subcategories: any[];
-  attachments: any[];
+  subcategories: string[];
+  attachments: string[];
   sequence: number;
-  oldIds: any[];
+  oldIds: string[];
 }
 
 export interface ApiProductList {
@@ -30,7 +30,7 @@ export interface GridElement {
   type: GridElementType;
   id?: string;
   template?: Template;
-  hiddenFields?: any[];
+  hiddenFields?: string[];
 }
 
 export enum Template {
@@ -62,7 +62,7 @@ export interface ApiProduct {
   tags: Tag[];
   attributes: Attribute[];
   relatedCategories: Category[];
-  attachments: any[];
+  attachments: string[];
   bundleProductSummaries: BundleProductSummary[];
   detail: ProductDetail;
   field5: null | string;
@@ -114,7 +114,7 @@ export interface BundleColor {
   name: string;
   image: null;
   colorName: null;
-  relatedCategories: any[];
+  relatedCategories: string[];
   modelName: null;
 }
 
@@ -132,12 +132,12 @@ export interface BundleProductSummary {
   sizeSystem: string;
   subFamily: string;
   productType: ProductType;
-  bundleColors: any[];
-  tags: any[];
+  bundleColors: string[];
+  tags: string[];
   attributes: Attribute[];
-  relatedCategories: any[];
-  attachments: any[];
-  bundleProductSummaries: any[];
+  relatedCategories: string[];
+  attachments: string[];
+  bundleProductSummaries: string[];
   detail: BundleProductSummaryDetail;
   field5: string;
   sequence: number;
@@ -149,7 +149,7 @@ export interface BundleProductSummary {
   productUrl: string;
   gridElemType: BundleProductSummaryGridElemType;
   availabilityDate: Date;
-  productUrlTranslations: any[];
+  productUrlTranslations: string[];
 }
 
 export interface BundleProductSummaryDetail {
@@ -160,11 +160,11 @@ export interface BundleProductSummaryDetail {
   displayReference: string;
   isSport: boolean;
   defaultImageType: null;
-  composition: any[];
-  compositionByZone: any[];
+  composition: string[];
+  compositionByZone: string[];
   care: Care[];
   colors: Color[];
-  relatedProducts: any[];
+  relatedProducts: string[];
   xmediaDefaultSet: null;
   xmedia: PurpleXmedia[];
   skuDimensions: Dimensions;
@@ -193,7 +193,7 @@ export interface Color {
   isContinuity: boolean;
   joinLifeInfo: JoinLifeInfo;
   compositionDetail: null;
-  colFilter: any[];
+  colFilter: string[];
 }
 
 export interface Image {
@@ -320,10 +320,10 @@ export interface ProductDetail {
   displayReference: string;
   isSport: boolean;
   defaultImageType: null | string;
-  composition: any[];
-  compositionByZone: any[];
-  care: any[];
-  colors: any[];
+  composition: string[];
+  compositionByZone: string[];
+  care: string[];
+  colors: string[];
   relatedProducts: RelatedProduct[];
   xmediaDefaultSet: number | null;
   xmedia: FluffyXmedia[] | null;
@@ -348,7 +348,7 @@ export interface RelatedProduct {
   relatedCategories: Category[];
   detail: RelatedProductDetail;
   bundleProductSummaries: BundleProductSummary[];
-  colors: any[];
+  colors: string[];
   family: string;
   subFamily: string;
   productUrl: string;
@@ -356,7 +356,7 @@ export interface RelatedProduct {
 
 export interface RelatedProductDetail {
   reference: string;
-  colors: any[];
+  colors: string[];
   isJoinLife: boolean;
 }
 

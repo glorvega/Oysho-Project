@@ -5,6 +5,7 @@ import { ApiProduct, Image } from '../interfaces/api-product.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
+  Category,
   ImageKind,
   ImageSize,
   ImageUrlOptions,
@@ -17,6 +18,19 @@ import { ApiProductService } from './api/api-product.service';
 })
 export class ProductService {
   constructor(private apiProductService: ApiProductService) {}
+
+  getCategories(): Observable<Category[]> {
+    return this.apiProductService.getCategory().pipe(
+      map((apiCategories) => {
+        return apiCategories.categories.map((cat) => ({
+          id: cat.id,
+          name: cat.name,
+          nameEn: cat.nameEn,
+          description: cat.description,
+        }));
+      })
+    );
+  }
 
   getProductList(id: string): Observable<Product[]> {
     return this.apiProductService.getApiProductList(id).pipe(

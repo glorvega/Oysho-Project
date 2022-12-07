@@ -4,7 +4,6 @@
             <ng-template #content>
                 <ul class="navbar-container__left--sidebar-categories" *ngFor="let cat of allCategories">
                     <li (click)="gotoList(cat.id)">{{cat.name}}</li>
-                    <!-- ngIf="cat.name === 'ski collection' gotoList()" -->
                 </ul>
             </ng-template>
         </div>
@@ -17,7 +16,6 @@
     </div>
     <div class="navbar-container__middle">
         <div class="navbar-container__middle--input-wrapper">
-            <!-- <input type="text" class="icon" placeholder="Buscar productos..."> -->
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">
                     <img src="../../../assets/images/icons/search.svg" alt="search icon" width="15px" height="15px" />
@@ -29,5 +27,4 @@
     <div class="navbar-container__right">
         <a>Products</a>
     </div>
-
 </div>

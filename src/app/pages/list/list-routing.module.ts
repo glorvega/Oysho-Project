@@ -4,13 +4,8 @@ import { ListComponent } from './list.component';
 
 const routes: Routes = [
   {
-    path: ':catId',
+    path: '',
     component: ListComponent,
-  },
-  {
-    path: ':catId/detail',
-    loadChildren: () =>
-      import('../detail/detail.module').then((m) => m.DetailModule),
   },
 ];
 @NgModule({

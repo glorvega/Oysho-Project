@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from './card/card.component';
+import { CardComponent } from './components/card/card.component';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
 @NgModule({
   declarations: [CardComponent, ProductFilterPipe],

@@ -14,7 +14,7 @@ import { ProductService } from 'src/app/core/services/products/services/product.
 export class ListComponent implements OnInit {
   public productList: Product[] = [];
   public inputSearch: string = '';
-  id: string | null = '';
+  public id: string | null = '';
 
   constructor(
     private router: Router,

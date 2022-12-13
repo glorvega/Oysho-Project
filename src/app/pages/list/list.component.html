@@ -14,7 +14,7 @@
 
     <div class="list-container__products">
         <app-card *ngFor="let product of productList | filter:inputSearch" [product]="product"
-            [callbackFunction]="gotoDetails">
+            (gotoDetail)="gotoDetails(product)">
         </app-card>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 
 @Component({
@@ -6,11 +6,11 @@ import { Product } from 'src/app/core/services/products/interfaces/product.inter
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() product!: Product;
-  @Input() callbackFunction!: (args: any) => void;
+  @Output() gotoDetail: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  public navigateToDetail() {
+    this.gotoDetail.emit();
+  }
 }

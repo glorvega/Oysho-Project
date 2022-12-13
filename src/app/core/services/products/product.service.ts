@@ -15,7 +15,7 @@ export class ProductService {
     return this.apiProductService.getCategory().pipe(
       map((apiCategories) => {
         return apiCategories.categories.map((cat) => ({
-          id: cat.id,
+          id: cat.viewCategoryId !== 0 ? cat.viewCategoryId : cat.id,
           name: cat.name,
           nameEn: cat.nameEn,
           description: cat.description,

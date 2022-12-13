@@ -3,3 +3,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import './reset.scss';
 @import './scrollbar.scss';
+
+
+.offcanvas.offcanvas-start {
+    overflow: hidden scroll;
+    top: 50px;
+}

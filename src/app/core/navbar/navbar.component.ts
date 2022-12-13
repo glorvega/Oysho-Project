@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
   getCategories() {
     this.categoryService.getCategories().subscribe({
       next: (result) => {
-        this.allCategories = result;
+        this.allCategories = result.splice(0, 20);
       },
       error: (err) => {
         console.error(err);

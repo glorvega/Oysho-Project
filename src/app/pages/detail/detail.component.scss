@@ -1,3 +1,5 @@
+@import 'src/app/styles/_button.scss';
+
 .detail-container {
 
     &__card {
@@ -9,34 +11,17 @@
         margin-top: 35px;
         margin-bottom: 50px;
 
-        button {
-            border-radius: 20px;
-            transition: 0.25s;
-            background: hsl(227, 19%, 72%);
-            font: 300 1em 'Roboto Condensed', sans-serif;
-            font: inherit;
-            line-height: 1;
-            margin: 0.5em;
-            padding: 5px 10px;
-            box-shadow:
-                0.3em 0.3em 0 0 #9272cc,
-                inset 0.3em 0.3em 0 0 #9272cc;
-
-            &:hover,
-            &:focus {
-                box-shadow:
-                    0 0 0 0 #9272cc,
-                    inset 6em 3.5em 0 0 #9272cc;
-            }
+        &__button {
+            @extend button;
         }
 
-        &--image {
+        &__image {
             img {
                 width: 500px;
             }
         }
 
-        &--title {
+        &__title {
             margin-bottom: 20px;
             margin-top: 20px;
             font-size: 30px;
@@ -45,11 +30,12 @@
             font-family: 'Roboto Condensed', sans-serif;
         }
 
-        &--description {
+        &__description {
             margin-top: 20px;
             font-size: 20px;
             font-family: 'Roboto Condensed', sans-serif;
             text-align: justify;
+            width: 700px;
         }
     }
 }

@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from 'src/app/core/services/products/interfaces/product.interface';
-import { ApiProductService } from '../services/products/services/api/api-product.service';
-import { ProductService } from '../services/products/services/product.service';
+import { ApiProductService } from '../services/products/api/api-product.service';
+import { ProductService } from '../services/products/product.service';
 
 @Component({
   selector: 'app-navbar',

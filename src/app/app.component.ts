@@ -8,5 +8,4 @@ import { Category } from './core/services/products/interfaces/product.interface'
 })
 export class AppComponent {
   title = 'OyshoProject';
-  @Input() category!: Category;
 }

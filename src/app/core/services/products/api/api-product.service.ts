@@ -5,7 +5,7 @@ import {
   ApiCategory,
   ApiProduct,
   ApiProductList,
-} from '../../interfaces/api-product.interface';
+} from '../../products/interfaces/api-product.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({

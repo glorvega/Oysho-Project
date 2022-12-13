@@ -1,0 +1,18 @@
+button {
+    border-radius: 20px;
+    transition: 0.25s;
+    background: hsl(227deg, 19%, 72%);
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 5px 10px;
+    box-shadow: 0.3em 0.3em 0 0 #9272cc, inset 0.3em 0.3em 0 0 #9272cc;
+    bottom: 0;
+
+    &:hover,
+    &:focus {
+        box-shadow:
+            0 0 0 0 #9272cc,
+            inset 6em 3.5em 0 0 #9272cc;
+    }
+}

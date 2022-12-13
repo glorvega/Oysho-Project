@@ -1,8 +1,8 @@
 <div class="card" style="width: 18rem;">
     <img src="{{product.image[0]}}" class="card-img-top" alt="{{product.name}}">
-    <div class="card--body">
-        <h5 class="card--body--title">{{product.name}}</h5>
-        <h4 class="card--body--price">{{product.prices[0]}}€</h4>
-        <button class="btn btn-primary" (click)="callbackFunction(product)">Ver Detalles</button>
+    <div class="body">
+        <h5 class="body__title">{{product.name}}</h5>
+        <h4 class="body__price">{{product.prices[0]}}€</h4>
+        <button class="body__button" (click)="callbackFunction(product)">Ver Detalles</button>
     </div>
 </div>

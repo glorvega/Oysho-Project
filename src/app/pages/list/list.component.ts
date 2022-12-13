@@ -4,7 +4,7 @@ import {
   Category,
   Product,
 } from 'src/app/core/services/products/interfaces/product.interface';
-import { ProductService } from 'src/app/core/services/products/services/product.service';
+import { ProductService } from 'src/app/core/services/products/product.service';
 
 @Component({
   selector: 'app-list',

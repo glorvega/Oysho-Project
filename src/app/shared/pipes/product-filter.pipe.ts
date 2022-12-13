@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 
 @Pipe({
   name: 'filter',
 })
 export class ProductFilterPipe implements PipeTransform {
-  transform(value: any[], filter: string): any {
+  transform(value: Product[], filter: string): Product[] {
     if (filter === '') {
       return value;
     } else {

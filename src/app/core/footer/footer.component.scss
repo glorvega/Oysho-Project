@@ -8,10 +8,10 @@
     line-height: 24px;
     color: #737373;
 
-    &--row {
+    &__row {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-evenly;
 
         &__qr {
 

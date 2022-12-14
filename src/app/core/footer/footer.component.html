@@ -1,33 +1,7 @@
 <div class="footer-container">
-    <div class="footer-container--row">
-        <div class="footer-container--row__ayuda">
-            <h5>Ayuda</h5>
-            <ul *ngFor="let site of footerSites">
-                <li *ngIf="site.group === 'Ayuda'">
-                    <a href="{{site.url}}">{{site.title}}</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer-container--row__empresa">
-            <h5>Empresa</h5>
-            <ul class="footer-container--row__empresa--footer-links" *ngFor="let site of footerSites">
-                <li *ngIf="site.group === 'Empresa'">
-                    <a href="{{site.url}}">{{site.title}}</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer-container--row__links">
-            <h5>Síguenos</h5>
-            <ul class="footer-container--row__links--footer-links" *ngFor="let site of footerSites">
-                <li *ngIf="site.group === 'Follow'">
-                    <a href="{{site.url}}">{{site.title}}</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer-container--row__qr">
+    <div class="footer-container__row">
+        <app-footer-links [sites]="footerSites"></app-footer-links>
+        <div class="footer-container__row__qr">
             <h5>Descarga nuestra app</h5>
             <img src="https://static.oysho.net/6/cms/assets/uploads/qrDownload_1.png?imwidth=200&ts=20221129021707"
                 alt="código qr de Oysho" />

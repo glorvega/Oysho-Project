@@ -31,8 +31,8 @@ export class ListComponent implements OnInit {
     });
   }
 
-  sort(event: any) {
-    switch (event.target.value) {
+  sort(inputValue: string) {
+    switch (inputValue) {
       case 'High': {
         this.productList = this.productList.sort(function (a: any, b: any) {
           return b.prices[0] - a.prices[0];

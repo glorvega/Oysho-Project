@@ -1,6 +1,10 @@
 <div class="footer-container">
     <div class="footer-container__row">
-        <app-footer-links [sites]="footerSites"></app-footer-links>
+
+        <app-footer-links [sites]="footerSites" group="Ayuda"></app-footer-links>
+        <app-footer-links [sites]="footerSites" group="Empresa"></app-footer-links>
+        <app-footer-links [sites]="footerSites" group="Follow"></app-footer-links>
+
         <div class="footer-container__row__qr">
             <h5>Descarga nuestra app</h5>
             <img src="https://static.oysho.net/6/cms/assets/uploads/qrDownload_1.png?imwidth=200&ts=20221129021707"

@@ -8,4 +8,5 @@ import { FooterSites } from 'src/app/core/footer/interfaces/footer.interface';
 })
 export class FooterLinksComponent {
   @Input() sites!: FooterSites[];
+  @Input() group: string = '';
 }

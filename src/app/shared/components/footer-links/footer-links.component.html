@@ -1,28 +1,8 @@
-<div class="footer-links">
-    <div class="footer-links__ayuda">
-        <h5>Ayuda</h5>
-        <ul *ngFor="let site of sites">
-            <li *ngIf="site.group === 'Ayuda'">
-                <a href="{{site.url}}">{{site.title}}</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="footer-links__empresa">
-        <h5>Empresa</h5>
-        <ul *ngFor="let site of sites">
-            <li *ngIf="site.group === 'Empresa'">
-                <a href="{{site.url}}">{{site.title}}</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="footer-links__links">
-        <h5>Síguenos</h5>
-        <ul *ngFor="let site of sites">
-            <li *ngIf="site.group === 'Follow'">
-                <a href="{{site.url}}">{{site.title}}</a>
-            </li>
-        </ul>
-    </div>
+<div class="footer-links-group">
+    <h5 class="footer-links-group__title">{{group}}</h5>
+    <ul *ngFor="let site of sites">
+        <li *ngIf="site.group === group">
+            <a class="footer-links-group__link" href="{{site.url}}">{{site.title}}</a>
+        </li>
+    </ul>
 </div>

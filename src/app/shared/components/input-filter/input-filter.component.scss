@@ -1,0 +1,19 @@
+.input-filter {
+    padding-left: 25px;
+    position: relative;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 0.5px solid #71797d;
+    color: #71797d;
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+    box-shadow: rgba(33, 35, 38, 0.5) 0px 20px 20px -10px;
+
+    &:focus {
+        outline: none;
+        border: 1px solid #bfcbd3;
+        color: #041821;
+    }
+}

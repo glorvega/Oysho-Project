@@ -1,0 +1,9 @@
+{
+  "products": [
+    {
+      "name": "Warm Jacket",
+      "price": "19.99€",
+      "image": "/assets/images/collections/prueba-card.jpg"
+    }
+  ]
+}

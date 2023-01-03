@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductDetail } from 'src/app/core/services/products/interfaces/api-product.interface';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/products/product.service';
 
@@ -43,10 +44,11 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['list', this.catdId]);
   }
 
-  addToCart() {
+  addToCart(productDetails: Product) {
+    localStorage.setItem('producto', JSON.stringify(productDetails));
     console.log('producto añadido');
-    setTimeout(() => {
+    /* setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000);
+    }, 2000); */
   }
 }

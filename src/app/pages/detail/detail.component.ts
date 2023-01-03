@@ -42,4 +42,11 @@ export class DetailComponent implements OnInit {
   goBack() {
     this.router.navigate(['list', this.catdId]);
   }
+
+  addToCart() {
+    console.log('producto añadido');
+    setTimeout(() => {
+      this.router.navigate(['cart']);
+    }, 2000);
+  }
 }

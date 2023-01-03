@@ -32,6 +32,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  goToCart() {
+    this.router.navigate(['cart']);
+  }
+
   gotoList(id: number) {
     this.router.navigate(['list', id.toString()]);
   }

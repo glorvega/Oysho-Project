@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/core/services/cart/cart.service';
+import { Store } from '@ngrx/store';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/products/product.service';
 import Swal from 'sweetalert2';
+import { addProduct } from 'src/app/store/actions/cart.actions';
+import { CartState } from 'src/app/store/states/cart.state';
 
 @Component({
   selector: 'app-detail',
@@ -19,6 +22,7 @@ export class DetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private productDetailsService: ProductService,
+    private store: Store<CartState>,
     private cartService: CartService
   ) {
     this.catdId = this.route.snapshot.paramMap.get('catId');
@@ -49,7 +53,8 @@ export class DetailComponent implements OnInit {
   addToCart(productDetails: Product) {
     /* localStorage.setItem('producto', JSON.stringify(productDetails));
     console.log('producto añadido'); */
-    this.cartService.addProduct(productDetails);
+    this.store.dispatch(addProduct({ product: productDetails }));
+    /* this.cartService.addProduct(productDetails);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',
@@ -57,6 +62,6 @@ export class DetailComponent implements OnInit {
     );
     setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000);
+    }, 2000); */
   }
 }

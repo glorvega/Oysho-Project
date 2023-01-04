@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/core/services/cart/cart.service';
-import { ProductDetail } from 'src/app/core/services/products/interfaces/api-product.interface';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/products/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detail',
@@ -50,6 +50,11 @@ export class DetailComponent implements OnInit {
     /* localStorage.setItem('producto', JSON.stringify(productDetails));
     console.log('producto añadido'); */
     this.cartService.addProduct(productDetails);
+    Swal.fire(
+      'Producto añadido con éxito',
+      'Redireccionando a tu cesta...',
+      'success'
+    );
     setTimeout(() => {
       this.router.navigate(['cart']);
     }, 2000);

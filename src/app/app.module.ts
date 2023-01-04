@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { AppStoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,8 +23,7 @@ import { environment } from '../environments/environment';
     NgbModule,
     HttpClientModule,
     CoreModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    AppStoreModule,
   ],
   providers: [
     {

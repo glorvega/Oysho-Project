@@ -31,6 +31,17 @@ export class ListComponent implements OnInit {
     });
   }
 
+  getProductList(id: string) {
+    this.productListService.getProductList(id).subscribe({
+      next: (result) => {
+        this.productList = result;
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
+  }
+
   sort(inputValue: string) {
     switch (inputValue) {
       case 'High': {
@@ -64,15 +75,4 @@ export class ListComponent implements OnInit {
   public gotoDetails = (product: Product) => {
     this.router.navigate(['list', this.id, 'detail', product.id.toString()]);
   };
-
-  getProductList(id: string) {
-    this.productListService.getProductList(id).subscribe({
-      next: (result) => {
-        this.productList = result;
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
-  }
 }

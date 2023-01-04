@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 import { ProductDetail } from 'src/app/core/services/products/interfaces/api-product.interface';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/products/product.service';
@@ -17,7 +18,8 @@ export class DetailComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private productDetailsService: ProductService
+    private productDetailsService: ProductService,
+    private cartService: CartService
   ) {
     this.catdId = this.route.snapshot.paramMap.get('catId');
     this.prodId = this.route.snapshot.paramMap.get('prodId');
@@ -45,10 +47,11 @@ export class DetailComponent implements OnInit {
   }
 
   addToCart(productDetails: Product) {
-    localStorage.setItem('producto', JSON.stringify(productDetails));
-    console.log('producto añadido');
-    /* setTimeout(() => {
+    /* localStorage.setItem('producto', JSON.stringify(productDetails));
+    console.log('producto añadido'); */
+    this.cartService.addProduct(productDetails);
+    setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000); */
+    }, 2000);
   }
 }

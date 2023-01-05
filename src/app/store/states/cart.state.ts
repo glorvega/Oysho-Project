@@ -2,7 +2,7 @@ import { Product } from 'src/app/core/services/products/interfaces/product.inter
 
 export interface CartState {
   id: string | null;
-  product: any;
+  product: Product[] | undefined;
   loaded: boolean;
   loading: boolean;
   error: any;

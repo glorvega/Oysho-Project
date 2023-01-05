@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import {
@@ -16,16 +17,23 @@ import { CartState } from 'src/app/store/states/cart.state';
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
+  error: any;
+  loading!: boolean;
 
-  constructor(
-    private cartService: CartService,
-    private store: Store<CartState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store.select('product').subscribe(({ product }) => {
-      if (product) {
-        this.cartProducts = product;
+    /*     this.store.select('product').subscribe((obj) => {
+      if (obj && obj.hasOwnProperty('product')) {
+        this.cartProducts = obj;
+      } else {
+        return;
+      }
+    }); */
+    this.store.select('cart').subscribe((state: CartState) => {
+      console.log(state.product);
+      if (state.product) {
+        this.cartProducts = state.product;
       } else {
         return;
       }

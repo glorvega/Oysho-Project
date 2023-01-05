@@ -51,10 +51,8 @@ export class DetailComponent implements OnInit {
   }
 
   addToCart(productDetails: Product) {
-    /* localStorage.setItem('producto', JSON.stringify(productDetails));
-    console.log('producto añadido'); */
-    this.store.dispatch(addProduct({ product: productDetails }));
-    /* this.cartService.addProduct(productDetails);
+    //this.store.dispatch(addProduct({ product: productDetails }));
+    this.cartService.addProduct(productDetails);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',
@@ -62,6 +60,6 @@ export class DetailComponent implements OnInit {
     );
     setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000); */
+    }, 2000);
   }
 }

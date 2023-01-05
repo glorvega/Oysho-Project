@@ -1,0 +1,23 @@
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    .title {
+        margin-top: 20px;
+        font-size: 30px;
+        color: #7c77c3;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    &__products {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0px 40px 0px;
+        justify-content: center;
+    }
+}

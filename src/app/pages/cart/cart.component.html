@@ -1,2 +1,12 @@
-<p>cart works!</p><!-- 
-<app-cart></app-cart> -->
+<div class="cart-container">
+    <h1 class="title">
+        TU CESTRA DE COMPRAS
+    </h1>
+    <div class="cart-container__products">
+        <app-card *ngFor="let product of cartProducts" [product]="product">
+        </app-card>
+    </div>
+</div>
+<!-- <div *ngFor="let product of cartProducts">
+    <h1>{{product.name}}</h1>
+</div> -->

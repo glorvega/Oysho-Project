@@ -20,12 +20,18 @@ export class CartComponent implements OnInit {
   error: any;
   loading!: boolean;
   cart: boolean = true;
+  product!: Product;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.store.select('cart').subscribe((state: CartState) => {
       console.log(state.product);
+      console.log(state.error);
+      console.log(state.loading);
       if (state.product) {
         this.cartProducts = state.product;
         this.error = state.error;
@@ -40,5 +46,9 @@ export class CartComponent implements OnInit {
 
   getCartProducts() {
     this.store.dispatch(loadCartProducts());
+  }
+
+  deleteProduct(index: number) {
+    this.cartService.deleteProduct(index);
   }
 }

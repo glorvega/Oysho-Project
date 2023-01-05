@@ -8,21 +8,6 @@ import { Product } from '../products/interfaces/product.interface';
 export class CartService {
   constructor() {}
 
-  /*   addProduct(product: Product): void {
-    const products = this.getProducts();
-    products.push(product);
-    localStorage.setItem('nuevo producto', JSON.stringify(products));
-  }
-
-  getProducts(): Product[] {
-    const data = localStorage.getItem('nuevo producto');
-    if (data) {
-      return JSON.parse(data);
-    } else {
-      return [];
-    }
-  } */
-
   addProduct(product: Product): void {
     this.getProducts()
       .pipe(
@@ -41,5 +26,16 @@ export class CartService {
     } else {
       return of([]);
     }
+  }
+
+  deleteProduct(index: number): void {
+    this.getProducts()
+      .pipe(
+        tap((products) => products.splice(index, 1)),
+        tap((products) =>
+          localStorage.setItem('nuevo producto', JSON.stringify(products))
+        )
+      )
+      .subscribe();
   }
 }

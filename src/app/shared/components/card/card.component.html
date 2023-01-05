@@ -7,5 +7,9 @@
             <button class="body__button" (click)="navigateToDetail()">Ver Detalles</button>
         </div>
 
+        <div *ngIf="cart">
+            <button class="body__button" (click)="deleteProduct()">Eliminar Producto</button>
+        </div>
+
     </div>
 </div>

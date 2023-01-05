@@ -3,7 +3,7 @@
         TU CESTA DE COMPRAS
     </h1>
     <div class="cart-container__products">
-        <app-card *ngFor="let product of cartProducts" [product]="product">
+        <app-card *ngFor="let product of cartProducts" [product]="product" [cart]="cart">
         </app-card>
     </div>
 </div>

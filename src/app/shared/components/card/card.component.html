@@ -3,6 +3,9 @@
     <div class="body">
         <h5 class="body__title">{{product.name}}</h5>
         <h4 class="body__price">{{product.prices[0]}}€</h4>
-        <button class="body__button" (click)="navigateToDetail()">Ver Detalles</button>
+        <div *ngIf="!cart">
+            <button class="body__button" (click)="navigateToDetail()">Ver Detalles</button>
+        </div>
+
     </div>
 </div>

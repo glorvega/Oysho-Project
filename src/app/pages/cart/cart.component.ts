@@ -19,21 +19,17 @@ export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
   error: any;
   loading!: boolean;
+  cart: boolean = true;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    /*     this.store.select('product').subscribe((obj) => {
-      if (obj && obj.hasOwnProperty('product')) {
-        this.cartProducts = obj;
-      } else {
-        return;
-      }
-    }); */
     this.store.select('cart').subscribe((state: CartState) => {
       console.log(state.product);
       if (state.product) {
         this.cartProducts = state.product;
+        this.error = state.error;
+        this.loading = state.loading;
       } else {
         return;
       }
@@ -41,17 +37,6 @@ export class CartComponent implements OnInit {
 
     this.getCartProducts();
   }
-
-  /*   getCartProducts() {
-    this.cartProducts = this.cartService.getProducts();
-    console.log(JSON.stringify(this.cartProducts));
-  } */
-
-  /* getCartProducts() {
-    this.cartService
-      .getProducts()
-      .subscribe((products) => (this.cartProducts = products));
-  } */
 
   getCartProducts() {
     this.store.dispatch(loadCartProducts());

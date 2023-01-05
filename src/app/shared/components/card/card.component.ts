@@ -8,6 +8,7 @@ import { Product } from 'src/app/core/services/products/interfaces/product.inter
 })
 export class CardComponent {
   @Input() product!: Product;
+  @Input() cart: boolean = false;
   @Output() gotoDetail: EventEmitter<void> = new EventEmitter<void>();
 
   public navigateToDetail() {

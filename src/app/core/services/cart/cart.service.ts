@@ -8,7 +8,7 @@ import { Product } from '../products/interfaces/product.interface';
 export class CartService {
   constructor() {}
 
-  addProduct(product: Product): void {
+  addProduct(product: Product) /* : Observable<CartProduct> */ {
     this.getProducts()
       .pipe(
         tap((products) => products.push(product)),

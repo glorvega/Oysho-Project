@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { addProduct } from 'src/app/store/actions/cart.actions';
 import { CartState } from 'src/app/store/states/cart.state';
 import { AppState } from 'src/app/app.reducer';
+import { CartProduct } from 'src/app/core/services/cart/cart.interface';
 
 @Component({
   selector: 'app-detail',
@@ -17,6 +18,11 @@ import { AppState } from 'src/app/app.reducer';
 export class DetailComponent implements OnInit {
   catdId: string | null = '';
   prodId: string | null = '';
+  cartProducts: Product[] = [];
+  error: any;
+  loading!: boolean;
+  cart: boolean = true;
+  product!: Product;
   public productDetails!: Product;
 
   constructor(
@@ -34,6 +40,19 @@ export class DetailComponent implements OnInit {
     if (this.catdId && this.prodId) {
       this.getProductDetail(this.catdId, this.prodId);
     }
+
+    this.store.select('cart').subscribe((state: CartState) => {
+      console.log(state.products);
+      console.log(state.error);
+      console.log(state.loading);
+      if (state.products) {
+        this.cartProducts = state.products;
+        this.error = state.error;
+        this.loading = state.loading;
+      } else {
+        return;
+      }
+    });
   }
 
   getProductDetail(catId: string, prodId: string) {
@@ -51,9 +70,9 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['list', this.catdId]);
   }
 
-  addToCart(productDetails: Product) {
-    //this.store.dispatch(addProduct({ product: productDetails }));
-    this.cartService.addProduct(productDetails);
+  addToCart(product: CartProduct) {
+    //this.store.dispatch(addProduct({ product: product }));
+    this.cartService.addProduct(product);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',

@@ -12,7 +12,7 @@
 
     <div class="list-container__products">
         <app-card *ngFor="let product of productList | filter:inputSearch" [product]="product"
-            (gotoDetail)="gotoDetails(product)">
+            (gotoDetail)="gotoDetails(product)" (sendToCart)="addToCart(product)">
         </app-card>
     </div>
 </div>

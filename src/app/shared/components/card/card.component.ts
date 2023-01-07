@@ -11,6 +11,7 @@ export class CardComponent {
   @Input() cart: boolean = false;
   @Output() gotoDetail: EventEmitter<void> = new EventEmitter<void>();
   @Output() deleteItem: EventEmitter<void> = new EventEmitter<void>();
+  @Output() sendToCart: EventEmitter<void> = new EventEmitter<void>();
 
   public navigateToDetail() {
     this.gotoDetail.emit();
@@ -18,5 +19,9 @@ export class CardComponent {
 
   public deleteProduct() {
     this.deleteItem.emit();
+  }
+
+  public addToCart() {
+    this.sendToCart.emit();
   }
 }

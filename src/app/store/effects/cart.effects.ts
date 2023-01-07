@@ -10,7 +10,7 @@ import * as cartActions from '.././actions/cart.actions';
 export class CartEffects {
   constructor(private actions$: Actions, private cartService: CartService) {}
 
-  addProduct$ = createEffect(() =>
+  loadProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(cartActions.loadCartProducts),
       tap((data) => console.log('efectito', data)),
@@ -27,4 +27,21 @@ export class CartEffects {
       )
     )
   );
+
+  /* saveProducts$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(cartActions.addProduct),
+      tap((data) => console.log('efectito', data)),
+      mergeMap(() =>
+        this.cartService.addProduct(product).pipe(
+          tap((prod) => console.log('productos', prod)),
+          map((product) =>
+            cartActions.addProductSuccess({ product: product })
+          ),
+          catchError((err) =>
+            of(cartActions.addProductError({ payload: err }))
+          )
+        )
+      ))
+  ) */
 }

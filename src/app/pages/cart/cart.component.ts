@@ -29,11 +29,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select('cart').subscribe((state: CartState) => {
-      console.log(state.product);
+      console.log(state.products);
       console.log(state.error);
       console.log(state.loading);
-      if (state.product) {
-        this.cartProducts = state.product;
+      if (state.products) {
+        this.cartProducts = state.products;
         this.error = state.error;
         this.loading = state.loading;
       } else {
@@ -50,5 +50,6 @@ export class CartComponent implements OnInit {
 
   deleteProduct(index: number) {
     this.cartService.deleteProduct(index);
+    window.location.reload();
   }
 }

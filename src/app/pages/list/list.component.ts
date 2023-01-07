@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartProduct } from 'src/app/core/services/cart/cart.interface';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 import {
   Category,
   Product,
 } from 'src/app/core/services/products/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/products/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list',
@@ -19,7 +22,8 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private productListService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -75,4 +79,17 @@ export class ListComponent implements OnInit {
   public gotoDetails = (product: Product) => {
     this.router.navigate(['list', this.id, 'detail', product.id.toString()]);
   };
+
+  addToCart(product: CartProduct) {
+    //this.store.dispatch(addProduct({ product: product }));
+    this.cartService.addProduct(product);
+    Swal.fire(
+      'Producto añadido con éxito',
+      'Redireccionando a tu cesta...',
+      'success'
+    );
+    setTimeout(() => {
+      this.router.navigate(['cart']);
+    }, 2000);
+  }
 }

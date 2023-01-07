@@ -5,6 +5,7 @@
         <h4 class="body__price">{{product.prices[0]}}€</h4>
         <div *ngIf="!cart">
             <button class="body__button" (click)="navigateToDetail()">Ver Detalles</button>
+            <button class="body__button" (click)="addToCart()">Añadir a la cesta</button>
         </div>
 
         <div *ngIf="cart">

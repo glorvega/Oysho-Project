@@ -1,8 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as cartActions from '.././actions/cart.actions';
-import { filter } from 'rxjs/operators';
 import { CartInitialState, CartState } from '../states/cart.state';
-import { provideCloudinaryLoader } from '@angular/common';
 
 const _cartReducer = createReducer(
   CartInitialState,
@@ -16,7 +14,7 @@ const _cartReducer = createReducer(
     ...state,
     loading: false,
     loaded: true,
-    product: [...product],
+    products: [...product],
   })),
 
   on(cartActions.loadCartProductsError, (state, { payload }) => ({
@@ -32,7 +30,25 @@ const _cartReducer = createReducer(
 
   on(cartActions.addProduct, (state, { product }) => ({
     ...state,
-    product: [{ ...product }],
+    products: [...state.products, product],
+  })),
+
+  on(cartActions.addProductSuccess, (state, { product }) => ({
+    ...state,
+    loading: false,
+    loaded: true,
+    products: [...product],
+  })),
+
+  on(cartActions.addProductError, (state, { payload }) => ({
+    ...state,
+    loading: false,
+    loaded: false,
+    error: {
+      url: payload.url,
+      name: payload.name,
+      message: payload.message,
+    },
   }))
 
   /*       on(cartActions.removeProduct, (state, { id, product }) => ({

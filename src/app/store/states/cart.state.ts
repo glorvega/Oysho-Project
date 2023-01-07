@@ -1,8 +1,8 @@
-import { Product } from 'src/app/core/services/products/interfaces/product.interface';
+import { CartProduct } from 'src/app/core/services/cart/cart.interface';
 
 export interface CartState {
   id: string | null;
-  product: Product[] | undefined;
+  products: CartProduct[];
   loaded: boolean;
   loading: boolean;
   error: any;
@@ -10,7 +10,7 @@ export interface CartState {
 
 export const CartInitialState: CartState = {
   id: '',
-  product: [],
+  products: [],
   loaded: false,
   loading: false,
   error: null,

@@ -7,6 +7,7 @@ import {
   addProduct,
   loadCartProducts,
   loadCartProductsSuccess,
+  removeProductByIndex,
 } from 'src/app/store/actions/cart.actions';
 import { CartState } from 'src/app/store/states/cart.state';
 
@@ -49,7 +50,8 @@ export class CartComponent implements OnInit {
   }
 
   deleteProduct(index: number) {
-    this.cartService.deleteProduct(index);
-    window.location.reload();
+    this.store.dispatch(removeProductByIndex({ productIndex: index }));
+    //this.cartService.deleteProduct(index);
+    //window.location.reload();
   }
 }

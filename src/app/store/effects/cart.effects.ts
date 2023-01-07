@@ -2,7 +2,14 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { tap, map, mergeMap, catchError } from 'rxjs/operators';
+import {
+  tap,
+  map,
+  mergeMap,
+  catchError,
+  switchMap,
+  take,
+} from 'rxjs/operators';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 import * as cartActions from '.././actions/cart.actions';
 
@@ -28,20 +35,47 @@ export class CartEffects {
     )
   );
 
-  /* saveProducts$ = createEffect(
-    () => this.actions$.pipe(
+  addProduct$ = createEffect(() =>
+    this.actions$.pipe(
       ofType(cartActions.addProduct),
       tap((data) => console.log('efectito', data)),
-      mergeMap(() =>
-        this.cartService.addProduct(product).pipe(
-          tap((prod) => console.log('productos', prod)),
-          map((product) =>
-            cartActions.addProductSuccess({ product: product })
-          ),
-          catchError((err) =>
-            of(cartActions.addProductError({ payload: err }))
+      switchMap((action) => {
+        return this.cartService.addProduct(action.product).pipe(
+          map((product) => cartActions.addProductSuccess({ product })),
+          catchError((error) =>
+            of(cartActions.addProductError({ payload: error }))
+          )
+        );
+      })
+    )
+  );
+
+  removeProductByIndex$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(cartActions.removeProductByIndex),
+      switchMap(({ productIndex }) =>
+        this.cartService.removeProduct(productIndex).pipe(
+          map(() => cartActions.removeProductByIndexSuccess({ productIndex })),
+          catchError((error) =>
+            of(cartActions.removeProductByIndexError({ error }))
           )
         )
-      ))
-  ) */
+      )
+    )
+  );
+
+  /*   removeProduct$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(cartActions.removeProduct),
+      tap((data) => console.log('efectito', data)),
+      switchMap((action) => {
+        return this.cartService.deleteProduct(action.id).pipe(
+          map((product) => cartActions.removeProduct({ id: product.id})),
+          catchError((error) =>
+            of(cartActions.addProductError({ payload: error }))
+          )
+        );
+      })
+    )
+  ); */
 }

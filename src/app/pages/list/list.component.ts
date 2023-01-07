@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
 import { CartProduct } from 'src/app/core/services/cart/cart.interface';
 import { CartService } from 'src/app/core/services/cart/cart.service';
+import * as cartActions from 'src/app/store/actions/cart.actions';
 import {
   Category,
   Product,
@@ -23,7 +26,8 @@ export class ListComponent implements OnInit {
     private router: Router,
     private productListService: ProductService,
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
@@ -81,8 +85,8 @@ export class ListComponent implements OnInit {
   };
 
   addToCart(product: CartProduct) {
-    //this.store.dispatch(addProduct({ product: product }));
-    this.cartService.addProduct(product);
+    this.store.dispatch(cartActions.addProduct({ product: product }));
+    //this.cartService.addProduct(product);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',

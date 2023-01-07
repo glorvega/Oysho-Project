@@ -72,7 +72,7 @@ export class DetailComponent implements OnInit {
     console.log(cartActions.addProduct({ product: product }));
     //this.store.dispatch(cartActions.addProduct({ product: product }));
     this.store.dispatch(cartActions.addProduct({ product: product }));
-    /*     this.cartService.addProduct(product);
+    //this.cartService.addProduct(product);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',
@@ -80,6 +80,6 @@ export class DetailComponent implements OnInit {
     );
     setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000); */
+    }, 2000);
   }
 }

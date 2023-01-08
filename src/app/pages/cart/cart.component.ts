@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import {
-  addProduct,
   loadCartProducts,
-  loadCartProductsSuccess,
   removeProductByIndex,
 } from 'src/app/store/actions/cart.actions';
 import { CartState } from 'src/app/store/states/cart.state';
@@ -23,10 +20,7 @@ export class CartComponent implements OnInit {
   cart: boolean = true;
   product!: Product;
 
-  constructor(
-    private store: Store<AppState>,
-    private cartService: CartService
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store.select('cart').subscribe((state: CartState) => {
@@ -51,7 +45,5 @@ export class CartComponent implements OnInit {
 
   deleteProduct(index: number) {
     this.store.dispatch(removeProductByIndex({ productIndex: index }));
-    //this.cartService.deleteProduct(index);
-    //window.location.reload();
   }
 }

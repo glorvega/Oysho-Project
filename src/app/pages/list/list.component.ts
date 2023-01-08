@@ -26,7 +26,6 @@ export class ListComponent implements OnInit {
     private router: Router,
     private productListService: ProductService,
     private route: ActivatedRoute,
-    private cartService: CartService,
     private store: Store<AppState>
   ) {}
 
@@ -94,6 +93,6 @@ export class ListComponent implements OnInit {
     );
     setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000);
+    }, 1500);
   }
 }

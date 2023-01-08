@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Store } from '@ngrx/store';
 import { Product } from 'src/app/core/services/products/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/products/product.service';
 import Swal from 'sweetalert2';
 import * as cartActions from 'src/app/store/actions/cart.actions';
-import { CartState } from 'src/app/store/states/cart.state';
 import { AppState } from 'src/app/app.reducer';
 import { CartProduct } from 'src/app/core/services/cart/cart.interface';
 
@@ -29,8 +27,7 @@ export class DetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private productDetailsService: ProductService,
-    private store: Store<AppState>,
-    private cartService: CartService
+    private store: Store<AppState>
   ) {
     this.catdId = this.route.snapshot.paramMap.get('catId');
     this.prodId = this.route.snapshot.paramMap.get('prodId');
@@ -40,17 +37,6 @@ export class DetailComponent implements OnInit {
     if (this.catdId && this.prodId) {
       this.getProductDetail(this.catdId, this.prodId);
     }
-
-    /* this.store.select('cart').subscribe((state: CartState) => {
-      console.log(state.products);
-      console.log(state.error);
-      console.log(state.loading);
-      if (state.products) {
-        this.cartProducts = state.products;
-        this.error = state.error;
-        this.loading = state.loading;
-      }
-    }); */
   }
 
   getProductDetail(catId: string, prodId: string) {
@@ -70,9 +56,7 @@ export class DetailComponent implements OnInit {
 
   addToCart(product: CartProduct) {
     console.log(cartActions.addProduct({ product: product }));
-    //this.store.dispatch(cartActions.addProduct({ product: product }));
     this.store.dispatch(cartActions.addProduct({ product: product }));
-    //this.cartService.addProduct(product);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',
@@ -80,6 +64,6 @@ export class DetailComponent implements OnInit {
     );
     setTimeout(() => {
       this.router.navigate(['cart']);
-    }, 2000);
+    }, 1500);
   }
 }

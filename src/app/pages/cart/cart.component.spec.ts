@@ -1,26 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
 import { CartComponent } from './cart.component';
 import {
   loadCartProducts,
   removeProductByIndex,
-} from 'src/app/store/actions/cart.actions';
+} from '../../../../src/app/store/actions/cart.actions';
 import { AppState } from 'src/app/app.reducer';
-import { StateObservable, Store } from '@ngrx/store';
+import { StateObservable, Store, StoreModule } from '@ngrx/store';
+import { cartReducer } from '../../../../src/app/store/reducers';
 
 describe('CartComponent', () => {
   let component: CartComponent;
-  let store: Store<AppState>;
+  let fixture: ComponentFixture<CartComponent>;
+  let store: Store<{}>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule,
+        StoreModule.forRoot({ cart: cartReducer }),
+      ],
       declarations: [CartComponent],
     }).compileComponents();
 
     //store = new Store<AppState>(StateObservable, 2, 3);
-    component = new CartComponent(store);
+    fixture = TestBed.createComponent(CartComponent);
+    component = fixture.componentInstance;
+    store = TestBed.inject(Store);
+    jest.spyOn(store, 'dispatch').mockImplementation();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

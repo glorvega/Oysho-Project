@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Product } from 'src/app/core/services/products/interfaces/product.interface';
-import { ProductService } from 'src/app/core/services/products/product.service';
+import { Product } from '../../../../src/app/core/services/products/interfaces/product.interface';
+import { ProductService } from '../../../../src/app/core/services/products/product.service';
 import Swal from 'sweetalert2';
-import * as cartActions from 'src/app/store/actions/cart.actions';
-import { AppState } from 'src/app/app.reducer';
-import { CartProduct } from 'src/app/core/services/cart/cart.interface';
+import * as cartActions from '../../../../src/app/store/actions/cart.actions';
+import { AppState } from '../../../../src/app/app.reducer';
+import { CartProduct } from '../../../../src/app/core/services/cart/cart.interface';
 
 @Component({
   selector: 'app-detail',

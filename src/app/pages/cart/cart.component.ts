@@ -5,7 +5,7 @@ import { Product } from 'src/app/core/services/products/interfaces/product.inter
 import {
   loadCartProducts,
   removeProductByIndex,
-} from 'src/app/store/actions/cart.actions';
+} from '../../../../src/app/store/actions/cart.actions';
 import { CartState } from 'src/app/store/states/cart.state';
 
 @Component({

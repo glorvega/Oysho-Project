@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from 'src/app/core/services/products/interfaces/product.interface';
-import { ApiProductService } from '../services/products/api/api-product.service';
 import { ProductService } from '../services/products/product.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class NavbarComponent implements OnInit {
   constructor(
     private offcanvasService: NgbOffcanvas,
     private categoryService: ProductService,
-    private route: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -43,6 +41,8 @@ export class NavbarComponent implements OnInit {
   getCategories() {
     this.categoryService.getCategories().subscribe({
       next: (result) => {
+        console.log(result);
+
         this.allCategories = result.splice(0, 20);
       },
       error: (err) => {

@@ -24,9 +24,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select('cart').subscribe((state: CartState) => {
-      console.log(state.products);
-      console.log(state.error);
-      console.log(state.loading);
       if (state.products) {
         this.cartProducts = state.products;
         this.error = state.error;

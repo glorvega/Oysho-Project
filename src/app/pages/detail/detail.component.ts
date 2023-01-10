@@ -55,7 +55,6 @@ export class DetailComponent implements OnInit {
   }
 
   addToCart(product: CartProduct) {
-    console.log(cartActions.addProduct({ product: product }));
     this.store.dispatch(cartActions.addProduct({ product: product }));
     Swal.fire(
       'Producto añadido con éxito',

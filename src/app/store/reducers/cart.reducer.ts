@@ -12,9 +12,6 @@ const _cartReducer = createReducer(
   })), */
 
   on(cartActions.loadCartProductsSuccess, (state, { product }) => {
-    // Añadir sólo aquellos productos que no existen en el estado actual
-    /* const data = localStorage.getItem('nuevo producto');
-    const productsLocalStorage =data ? JSON.parse(data) : [] */
     let newProducts = [];
     if (state.products.length === 0) {
       newProducts = product;
@@ -69,28 +66,6 @@ const _cartReducer = createReducer(
     ...state,
     products: state.products.filter((product, index) => index !== productIndex),
   }))
-
-  /* on(cartActions.removeProduct, (state, { id }) => {
-    console.log('entra 1');
-    const products = [...state.products];
-    products.splice(
-      products.findIndex((p) => p.id === id),
-      1
-    );
-
-    return {
-      ...state,
-      products: products,
-    };
-  }) */
-
-  /* on(cartActions.removeProduct, (state, { id, product }) => ({
-    ...state,
-    product: ),
-  })) */
-  /*   on(cartActions.clearCart, (state, {product}) => ({ 
-    ...state, 
-    product: {...product}})), */
 );
 
 export function cartReducer(state: CartState | undefined, action: Action) {

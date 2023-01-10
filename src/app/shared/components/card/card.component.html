@@ -1,8 +1,8 @@
 <div class="card" style="width: 18rem;">
-    <img src="{{product.image[0]}}" class="card-img-top" alt="{{product.name}}">
+    <img src="{{product ? product.image[0] : ''}}" class="card-img-top" alt="{{product?.name}}">
     <div class="body">
-        <h5 class="body__title">{{product.name}}</h5>
-        <h4 class="body__price">{{product.prices[0]}}€</h4>
+        <h5 class="body__title">{{product?.name}}</h5>
+        <h4 class="body__price">{{product ? product.prices[0] : ''}}€</h4>
         <div *ngIf="!cart">
             <button class="body__button" (click)="navigateToDetail()">Ver Detalles</button>
             <button class="body__button" (click)="addToCart()">Añadir a la cesta</button>

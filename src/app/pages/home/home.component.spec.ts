@@ -1,5 +1,8 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HomeComponent } from './home.component';
 
@@ -7,17 +10,20 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let router: Router;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
+      imports: [RouterTestingModule],
     }).compileComponents();
-
-    /*    router = new Router(null, null, null, null, null, null, null);
     fixture = TestBed.createComponent(HomeComponent);
-    component = new HomeComponent(router);
     component = fixture.componentInstance;
-    fixture.detectChanges(); */
+    router = TestBed.inject(Router);
+    debugElement = fixture.debugElement;
+    htmlElement = debugElement.nativeElement;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -28,4 +34,8 @@ describe('HomeComponent', () => {
     component.gotoCollection(123);
     expect(navigateSpy).toHaveBeenCalledWith(['list', 123]);
   });
+  /*   it('should render a carousel with 3 slides', () => {
+    const carousel = htmlElement.querySelector('.home-container__collection');
+    expect(carousel).toContain('img');
+  }); */
 });

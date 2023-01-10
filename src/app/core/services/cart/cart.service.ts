@@ -9,7 +9,6 @@ export class CartService {
   constructor() {}
 
   addProduct(product: CartProduct): Observable<CartProduct> {
-    console.log(product);
     let data = localStorage.getItem('nuevo producto');
     let prod;
     if (data) {
@@ -18,7 +17,6 @@ export class CartService {
       prod = [product];
     }
     localStorage.setItem('nuevo producto', JSON.stringify(prod));
-    console.log(product);
 
     return of(product);
   }

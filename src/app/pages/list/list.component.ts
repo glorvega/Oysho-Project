@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
-import { CartProduct } from 'src/app/core/services/cart/cart.interface';
-import { CartService } from 'src/app/core/services/cart/cart.service';
-import * as cartActions from 'src/app/store/actions/cart.actions';
+import { AppState } from '../../../../src/app/app.reducer';
+import { CartProduct } from '../../../../src/app/core/services/cart/cart.interface';
+import { CartService } from '../../../../src/app/core/services/cart/cart.service';
+import * as cartActions from '../../../../src/app/store/actions/cart.actions';
 import {
   Category,
   Product,
-} from 'src/app/core/services/products/interfaces/product.interface';
-import { ProductService } from 'src/app/core/services/products/product.service';
+} from '../../../../src/app/core/services/products/interfaces/product.interface';
+import { ProductService } from '../../../../src/app/core/services/products/product.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -31,6 +31,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
+      console.info(params);
       this.id = params.get('catId');
       if (this.id) {
         this.getProductList(this.id);
@@ -85,7 +86,6 @@ export class ListComponent implements OnInit {
 
   addToCart(product: CartProduct) {
     this.store.dispatch(cartActions.addProduct({ product: product }));
-    //this.cartService.addProduct(product);
     Swal.fire(
       'Producto añadido con éxito',
       'Redireccionando a tu cesta...',

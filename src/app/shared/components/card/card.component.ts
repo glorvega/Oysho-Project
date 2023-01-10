@@ -7,7 +7,7 @@ import { Product } from 'src/app/core/services/products/interfaces/product.inter
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() product!: Product;
+  @Input() product!: Product | undefined;
   @Input() cart: boolean = false;
   @Output() gotoDetail: EventEmitter<void> = new EventEmitter<void>();
   @Output() deleteItem: EventEmitter<void> = new EventEmitter<void>();

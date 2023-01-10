@@ -20,10 +20,8 @@ export class CartEffects {
   loadProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(cartActions.loadCartProducts),
-      tap((data) => console.log('efectito', data)),
       mergeMap(() =>
         this.cartService.getProducts().pipe(
-          tap((prod) => console.log('productos', prod)),
           map((product) =>
             cartActions.loadCartProductsSuccess({ product: product })
           ),
@@ -38,7 +36,6 @@ export class CartEffects {
   addProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(cartActions.addProduct),
-      tap((data) => console.log('efectito', data)),
       switchMap((action) => {
         return this.cartService.addProduct(action.product).pipe(
           map((product) => cartActions.addProductSuccess({ product })),
@@ -63,19 +60,4 @@ export class CartEffects {
       )
     )
   );
-
-  /*   removeProduct$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(cartActions.removeProduct),
-      tap((data) => console.log('efectito', data)),
-      switchMap((action) => {
-        return this.cartService.deleteProduct(action.id).pipe(
-          map((product) => cartActions.removeProduct({ id: product.id})),
-          catchError((error) =>
-            of(cartActions.addProductError({ payload: error }))
-          )
-        );
-      })
-    )
-  ); */
 }

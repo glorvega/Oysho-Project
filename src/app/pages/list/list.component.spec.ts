@@ -19,6 +19,9 @@ import { ListComponent } from './list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartProduct } from 'src/app/core/services/cart/cart.interface';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CartComponent } from '../cart/cart.component';
+
+class ComponentTestRoute {}
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -72,7 +75,16 @@ describe('ListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ListComponent, ProductFilterPipe],
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          {
+            path: 'cart',
+            component: ComponentTestRoute,
+          },
+          {
+            path: 'detail',
+            component: ComponentTestRoute,
+          },
+        ]),
         HttpClientTestingModule,
         StoreModule.forRoot({}),
       ],
@@ -113,6 +125,11 @@ describe('ListComponent', () => {
     expect(spy).toHaveBeenCalledWith(id);
     expect(component.productList).toEqual(mockedProducts);
   });
+  /*   it('should navigate to product details', () => {
+    const navSpy = jest.spyOn(router, 'navigate');
+    component.gotoDetails(mockedProduct);
+    expect(navSpy).toHaveBeenCalledWith(['details']);
+  }); */
   it('should dispatch the addProduct action when addToCart is called and navigate to the cart', () => {
     const dispatchSpy = jest
       .spyOn(store, 'dispatch')

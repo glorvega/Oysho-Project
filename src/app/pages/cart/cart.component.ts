@@ -28,8 +28,6 @@ export class CartComponent implements OnInit {
         this.cartProducts = state.products;
         this.error = state.error;
         this.loading = state.loading;
-      } else {
-        return;
       }
     });
 

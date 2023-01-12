@@ -16,6 +16,7 @@ export class ProductUtils {
       longDescription:
         apiProduct.bundleProductSummaries[0]?.detail?.longDescription,
       prices: this.getPrices(apiProduct),
+      amount: 0,
     };
   }
 

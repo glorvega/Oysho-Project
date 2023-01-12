@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, mergeMap, Observable, of, tap } from 'rxjs';
+import { Product } from '../products/interfaces/product.interface';
 import { CartProduct } from './cart.interface';
 
 @Injectable({
@@ -10,13 +11,29 @@ export class CartService {
 
   addProduct(product: CartProduct): Observable<CartProduct> {
     let data = localStorage.getItem('nuevo producto');
-    let prod;
+
+    let productList: CartProduct[];
     if (data) {
-      prod = [...JSON.parse(data), product];
+      let parsedData: CartProduct[] = JSON.parse(data);
+      let repeatedProdIndex = parsedData.findIndex(
+        (parsedProduct: CartProduct) => {
+          return parsedProduct.id === product.id;
+        }
+      );
+      if (repeatedProdIndex != -1) {
+        if (parsedData[repeatedProdIndex].amount != undefined) {
+          parsedData[repeatedProdIndex].amount += 1;
+        } else {
+          parsedData[repeatedProdIndex].amount = 1;
+        }
+        productList = parsedData;
+      } else {
+        productList = [...parsedData, product];
+      }
     } else {
-      prod = [product];
+      productList = [product];
     }
-    localStorage.setItem('nuevo producto', JSON.stringify(prod));
+    localStorage.setItem('nuevo producto', JSON.stringify(productList));
 
     return of(product);
   }
@@ -36,7 +53,7 @@ export class CartService {
         products.splice(productIndex, 1);
         return of(
           localStorage.setItem('nuevo producto', JSON.stringify(products))
-        ).pipe(map(() => {}));
+        );
       })
     );
   }

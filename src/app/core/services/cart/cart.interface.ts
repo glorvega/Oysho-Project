@@ -5,4 +5,5 @@ export interface CartProduct {
   image: string[];
   longDescription: string;
   prices: string[];
+  amount: number;
 }

@@ -103,7 +103,9 @@ describe('NavbarComponent', () => {
 
   it('should navigate to the homepage', () => {
     let navigateSpy = jest.spyOn(router, 'navigate');
-    component.gotoHomepage();
+    ngZone.run(() => {
+      component.gotoHomepage();
+    });
     expect(navigateSpy).toHaveBeenCalledWith(['home']);
   });
   it('should navigate to the list', () => {

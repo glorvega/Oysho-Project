@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeComponent } from './home.component';
 
@@ -34,8 +35,4 @@ describe('HomeComponent', () => {
     component.gotoCollection(123);
     expect(navigateSpy).toHaveBeenCalledWith(['list', 123]);
   });
-  /*   it('should render a carousel with 3 slides', () => {
-    const carousel = htmlElement.querySelector('.home-container__collection');
-    expect(carousel).toContain('img');
-  }); */
 });
